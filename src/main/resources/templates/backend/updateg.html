@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Gallery | Arya Constructions</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.ico}" />
+
+    <link rel="stylesheet" th:href="@{/assets/css/backend-plugin.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/backend.css?v=1.0.0}">
+</head>
+
+<body class=" ">
+
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <div th:replace="~{backend/sidebar::layout(~{::section})}"></div>
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <div th:replace="~{backend/navbar::layout(~{::section})}"></div>
+            </div>
+        </div>
+
+
+        <div class="content-page">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="card">
+
+                            <div class="card-header d-flex justify-content-between">
+                                <div class="header-title">
+                                    <h4 class="card-title">Edit Image</h4>
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <form id="updateForm" th:action="@{/update/{id}(id=${gallery.id})}"
+                                      method="post" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="customFile" class="form-label"><b>Choose New Image:</b></label>
+                                        <input type="file" class="form-control" id="customFile" name="photo" required>
+                                    </div>
+
+                                    <input type="hidden" name="id" value="{{gallery.id}}">
+
+                                    <button type="submit" class="btn btn-primary">Update Image</button>
+                                    <a href="/gallerymanage" class="btn btn-secondary">Cancel</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Backend Bundle JavaScript -->
+        <script th:src="@{/assets/js/backend-bundle.min.js}"></script>
+        <!-- Chart Custom JavaScript -->
+        <script th:src="@{/assets/js/customizer.js}"></script>
+
+        <script th:src="@{/assets/js/sidebar.js}"></script>
+
+        <!-- Flextree Javascript-->
+        <script th:src="@{/assets/js/flex-tree.min.js}"></script>
+        <script th:src="@{/assets/js/tree.js}"></script>
+
+        <!-- Table Treeview JavaScript -->
+        <script th:src="@{/assets/js/table-treeview.js}"></script>
+
+        <!-- SweetAlert JavaScript -->
+        <script th:src="@{/assets/js/sweetalert.js}"></script>
+
+        <!-- Vectoe Map JavaScript -->
+        <script th:src="@{/assets/js/vector-map-custom.js}"></script>
+
+        <!-- Chart Custom JavaScript -->
+        <script th:src="@{/assets/js/chart-custom.js}"></script>
+        <script th:src="@{/assets/js/charts/01.js}"></script>
+        <script th:src="@{/assets/js/charts/02.js}"></script>
+
+        <!-- slider JavaScript -->
+        <script th:src="@{/assets/js/slider.js}"></script>
+
+        <!-- Emoji picker -->
+        <script th:src="@{/assets/vendor/emoji-picker-element/index.js}" type="module"></script>
+
+
+        <!-- app JavaScript -->
+        <script th:src="@{/assets/js/app.js}"></script>
+    </div>
+</body>
+
+</html>

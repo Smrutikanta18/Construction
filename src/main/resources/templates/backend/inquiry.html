@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Inquiry | Arya Constructions</title>
+
+    <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.ico}" />
+
+    <link rel="stylesheet" th:href="@{/assets/css/backend-plugin.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/backend.css?v=1.0.0}">
+</head>
+
+<body class=" ">
+
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <div th:replace="~{backend/sidebar::layout(~{::section})}"></div>
+
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <div th:replace="~{backend/navbar::layout(~{::section})}"></div>
+            </div>
+        </div>
+
+        <div class="content-page">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="header-title">
+                                        <h4 class="card-title">View Inquiry</h4>
+                                    </div>
+                                </div>
+                                <div class="container mt-5">
+                                    <h2 class="mb-4">Inquiries</h2>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <thead class="thead-dark">
+                                            <tr>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Message</th>
+                                                <th>Submitted At</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="inquiry : ${inquiries}">
+                                                <td th:text="${inquiry.firstname}"></td>
+                                                <td th:text="${inquiry.lastname}"></td>
+                                                <td th:text="${inquiry.email}"></td>
+                                                <td th:text="${inquiry.phone}"></td>
+                                                <td th:text="${inquiry.message}"></td>
+                                                <td th:text="${inquiry.submittedAt}"></td>
+                                                <td>
+                                                    <a th:href="@{/deleteInquiry(id=${inquiry.id})}" class="btn btn-danger">
+                                                        delete
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Backend Bundle JavaScript -->
+        <script th:src="@{/assets/js/backend-bundle.min.js}"></script>
+        <!-- Chart Custom JavaScript -->
+        <script th:src="@{/assets/js/customizer.js}"></script>
+
+        <script th:src="@{/assets/js/sidebar.js}"></script>
+
+        <!-- Flextree Javascript-->
+        <script th:src="@{/assets/js/flex-tree.min.js}"></script>
+        <script th:src="@{/assets/js/tree.js}"></script>
+
+        <!-- Table Treeview JavaScript -->
+        <script th:src="@{/assets/js/table-treeview.js}"></script>
+
+        <!-- SweetAlert JavaScript -->
+        <script th:src="@{/assets/js/sweetalert.js}"></script>
+
+        <!-- Vectoe Map JavaScript -->
+        <script th:src="@{/assets/js/vector-map-custom.js}"></script>
+
+        <!-- Chart Custom JavaScript -->
+        <script th:src="@{/assets/js/chart-custom.js}"></script>
+        <script th:src="@{/assets/js/charts/01.js}"></script>
+        <script th:src="@{/assets/js/charts/02.js}"></script>
+
+        <!-- slider JavaScript -->
+        <script th:src="@{/assets/js/slider.js}"></script>
+
+        <!-- Emoji picker -->
+        <script th:src="@{/assets/vendor/emoji-picker-element/index.js}" type="module"></script>
+
+
+        <!-- app JavaScript -->
+        <script th:src="@{/assets/js/app.js}"></script>
+    </div>
+</body>
+
+</html>

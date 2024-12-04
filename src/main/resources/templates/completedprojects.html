@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <!-- Basic Page Needs
+         ================================================== -->
+      <meta charset="utf-8">
+      <title>Completed -Arya Constructions </title>
+      <!-- Mobile Specific Metas
+         ================================================== -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="Construction Html5 Template">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+      <!-- Favicon
+         ================================================== -->
+      <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <!-- CSS
+         ================================================== -->
+      <!-- Bootstrap -->
+      <link rel="stylesheet" th:href="@{/plugins/bootstrap/bootstrap.min.css}">
+      <!-- FontAwesome -->
+      <link rel="stylesheet" th:href="@{/plugins/fontawesome/css/all.min.css}">
+      <!-- Animation -->
+      <link rel="stylesheet" th:href="@{/plugins/animate-css/animate.css}">
+      <!-- slick Carousel -->
+      <link rel="stylesheet" th:href="@{/plugins/slick/slick.css}">
+      <link rel="stylesheet" th:href="@{/plugins/slick/slick-theme.css}">
+      <!-- Colorbox -->
+      <link rel="stylesheet" th:href="@{/plugins/colorbox/colorbox.css}">
+      <!-- Template styles-->
+      <link rel="stylesheet" th:href="@{/css/style.css}">
+      <!-- Swiper js for carousel -->
+      <!-- use 1st two link or  -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   </head>
+   <body>
+      <div class="body-inner">
+          <div th:replace="~{header::layout(~{::section})}"></div>
+
+         <div id="banner-area" class="banner-area" style="background-image:linear-gradient(rgba(0, 53, 88, 0.409), rgba(0, 0, 0, 0.728)),url(images/banner/banner5.png)">
+            <div class="banner-text">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <div class="banner-heading" data-aos="fade-up">
+                           <h1 class="banner-title" style="font-family: 'Times New Roman', serif; font-weight: bold;">Completed Projects</h1>
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb justify-content-center">
+                                 <li class="breadcrumb-item"><a href="index">Home</a></li>
+                                 <li class="breadcrumb-item"><a href="completedprojects">Completed Projects</a></li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+                     <!-- Col end -->
+                  </div>
+                  <!-- Row end -->
+               </div>
+               <!-- Container end -->
+            </div>
+            <!-- Banner text end -->
+         </div>
+         <!-- Banner area end -->
+          <section id="main-container" class="project-area pb-2">
+              <div class="container">
+                  <!-- Title row end -->
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <h3 class="section-sub-title" data-aos="fade-up" style="font-family: 'Times New Roman', serif; font-weight: bold;">
+                              Completed <span style="font-family: 'Times New Roman', serif; font-weight: bold;">Projects</span>
+                          </h3>
+                      </div>
+                  </div>
+
+                  <!-- Loop through the list of completed projects -->
+                  <div class="row">
+                      <div class="swiper" data-aos="fade-up">
+                          <div class="slide-container-three">
+                              <div class="card-wrapper swiper-wrapper">
+                                  <!-- Looping through the completed projects -->
+                                  <div class="swiper-slide" th:each="project : ${projects}">
+                                      <div class="item" style="text-align: center; padding: 20px;">
+                                          <a th:href="'projects-single2?url=' + ${project.url}" style="text-decoration: none;">
+                                              <img loading="lazy" class="w-100" th:src="@{'images/' + ${project.image}}" alt="service-image" style="border-radius: 10px; transition: transform 0.3s ease; max-height: 200px; object-fit: cover;">
+                                          </a>
+                                          <span class="category top-left" style="position: absolute; top: 10px; left: 10px; background-color: rgba(0, 123, 255, 0.8); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 14px; transition: background-color 0.3s ease;">
+                                    <span th:text="${project.status}"></span>
+                                </span>
+                                          <h4 style="margin-top: 15px; font-size: 18px; font-weight: bold; color: #333; position: relative; transition: color 0.3s ease;">
+                                              <a th:href="'projects-single2?url=' + ${project.url}" style="text-decoration: none; color: inherit;">
+                                                  <span th:text="${project.name}"></span>
+                                              </a>
+                                              <span style="position: absolute; left: 0; bottom: -5px; width: 0; height: 2px; background-color: #007bff; transition: width 0.3s ease;"></span>
+                                          </h4>
+                                          <h5 class="text-danger" style="font-size: 16px; margin-top: 5px;">
+                                              <span th:text="${project.location}"></span>
+                                          </h5>
+                                          <div class="main-button border-top" style="padding-top: 10px; margin-top: 15px; border-top: 1px solid #ddd;">
+                                              <a th:href="'projects-single2?url=' + ${project.url}" style="color: #007bff; font-size: 14px; text-decoration: none; display: inline-block; padding: 8px 15px; border: 1px solid #007bff; border-radius: 5px; transition: background-color 0.3s ease, color 0.3s ease;">
+                                                  <i class="fa fa-caret-right" style="margin-right: 5px;"></i> Schedule a visit
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- End loop for completed projects -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Content row end -->
+              </div>
+              <!-- Container end -->
+          </section>
+
+          <div th:replace="~{footer::layout(~{::section})}"></div>
+
+         <!-- Project area end -->
+
+         <!-- Javascript Files
+            ================================================== -->
+         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+         <script>
+            AOS.init({
+            
+              duration: 1200,
+            });
+         </script>
+         <!-- initialize jQuery Library -->
+         <script th:src="@{/plugins/jQuery/jquery.min.js}"></script>
+         <!-- Bootstrap jQuery -->
+         <script th:src="@{/plugins/bootstrap/bootstrap.min.js}" defer></script>
+         <!-- Slick Carousel -->
+         <script th:src="@{/plugins/slick/slick.min.js}"></script>
+         <script th:src="@{/plugins/slick/slick-animation.min.js}"></script>
+         <!-- Color box -->
+         <script th:src="@{/plugins/colorbox/jquery.colorbox.js}"></script>
+         <!-- shuffle -->
+         <script th:src="@{/plugins/shuffle/shuffle.min.js}" defer></script>
+         <!-- Google Map API Key-->
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+         <!-- Google Map Plugin-->
+         <script th:src="@{/plugins/google-map/map.js}" defer></script>
+         <!-- Template custom -->
+         <script th:src="@{/js/script.js}"></script>
+      </div>
+      <!-- Body inner end -->
+      <script>
+    // Ensure the DOM is fully loaded before applying the hover effects
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.swiper-slide').forEach(card => {
+            const image = card.querySelector('img');
+            const name = card.querySelector('h4 span');
+            const button = card.querySelector('.main-button a');
+
+            // Hover effect for the image
+            image.addEventListener('mouseover', () => {
+                image.style.transform = 'scale(1.1)';
+            });
+            image.addEventListener('mouseout', () => {
+                image.style.transform = 'scale(1)';
+            });
+
+            // Hover effect for the name underline
+            const nameUnderline = card.querySelector('h4 span');
+            card.querySelector('h4').addEventListener('mouseover', () => {
+                if (nameUnderline) nameUnderline.style.width = '100%';
+            });
+            card.querySelector('h4').addEventListener('mouseout', () => {
+                if (nameUnderline) nameUnderline.style.width = '0';
+            });
+
+            // Hover effect for the "Schedule a visit" button
+            if (button) {
+                button.addEventListener('mouseover', () => {
+                    button.style.backgroundColor = 'red';
+                    button.style.color = '#fff';
+                });
+                button.addEventListener('mouseout', () => {
+                    button.style.backgroundColor = 'transparent';
+                    button.style.color = '#007bff';
+                });
+            }
+        });
+    });
+</script>
+
+
+   </body>
+</html>

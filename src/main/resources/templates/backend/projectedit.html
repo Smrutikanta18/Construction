@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title> Update Projects | Arya Constructions</title>
+   <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.ico}" />
+
+    <link rel="stylesheet" th:href="@{/assets/css/backend-plugin.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/backend.css?v=1.0.0}">
+</head>
+
+<body class=" ">
+   <!-- Wrapper Start -->
+   <div class="wrapper">
+       <div th:replace="~{backend/sidebar::layout(~{::section})}"></div>
+      <div class="iq-top-navbar">
+         <div class="iq-navbar-custom">
+             <div th:replace="~{backend/navbar::layout(~{::section})}"></div>
+         </div>
+      </div>
+      <div class="content-page">
+         <div class="container-fluid">
+            <div class="row">
+               <h3 class="card-title ml-5 mb-4">Update Projects</h3>
+            </div>
+            <div class="row">
+               <div class="col-sm-12 col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <form id="projectForm" method="post" action="/updateproject" enctype="multipart/form-data">
+                              <!-- Hidden fields to retain existing data -->
+                              <input type="hidden" name="id" th:value="${project.id}" />
+                              <input type="hidden" name="existingImage" th:value="${project.image}" />
+                              <input type="hidden" name="existingMap" th:value="${project.map}" />
+                              <input type="hidden" name="existingFplan" th:value="${project.fplan}" />
+
+                              <div class="form-row">
+                                  <!-- Project Status -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="status">Project Status</label>
+                                      <input type="text" class="form-control" id="status" name="status" th:value="${project.status}" required />
+                                  </div>
+
+                                  <!-- Project Name -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="name">Project Name</label>
+                                      <input type="text" class="form-control" id="name" name="name" th:value="${project.name}" required />
+                                  </div>
+
+                                  <!-- Project Image -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="image">Project Image</label>
+                                      <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="image" name="image">
+                                          <label class="custom-file-label" for="image">Choose file</label>
+                                      </div>
+                                  </div>
+
+                                  <!-- Map -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="map">Map</label>
+                                      <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="map" name="map">
+                                          <label class="custom-file-label" for="map">Choose file</label>
+                                      </div>
+                                  </div>
+
+                                  <!-- Location -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="location">Location</label>
+                                      <input type="text" class="form-control" id="location" name="location" th:value="${project.location}" required />
+                                  </div>
+
+                                  <!-- Floor Plan -->
+                                  <div class="col-md-6 mb-3">
+                                      <label for="fplan">Floor Plan</label>
+                                      <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="fplan" name="fplan">
+                                          <label class="custom-file-label" for="fplan">Choose file</label>
+                                      </div>
+                                  </div>
+
+                                  <!-- Project Details -->
+                                  <div class="col-md-12 mb-3">
+                                      <label for="details">Project Details</label>
+                                      <textarea class="form-control" id="details" name="details" rows="4" th:text="${project.details}" required></textarea>
+                                  </div>
+                              </div>
+
+                              <!-- Submit Button -->
+                              <div class="form-group text-center">
+                                  <button type="submit" class="btn btn-primary">Update Project</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Backend Bundle JavaScript -->
+   <script th:src="@{/assets/js/backend-bundle.min.js}"></script>
+   <!-- Chart Custom JavaScript -->
+   <script th:src="@{/assets/js/customizer.js}"></script>
+
+   <script th:src="@{/assets/js/sidebar.js}"></script>
+
+   <!-- Flextree Javascript-->
+   <script th:src="@{/assets/js/flex-tree.min.js}"></script>
+   <script th:src="@{/assets/js/tree.js}"></script>
+
+   <!-- Table Treeview JavaScript -->
+   <script th:src="@{/assets/js/table-treeview.js}"></script>
+
+   <!-- SweetAlert JavaScript -->
+   <script th:src="@{/assets/js/sweetalert.js}"></script>
+
+   <!-- Vectoe Map JavaScript -->
+   <script th:src="@{/assets/js/vector-map-custom.js}"></script>
+
+   <!-- Chart Custom JavaScript -->
+   <script th:src="@{/assets/js/chart-custom.js}"></script>
+   <script th:src="@{/assets/js/charts/01.js}"></script>
+   <script th:src="@{/assets/js/charts/02.js}"></script>
+
+   <!-- slider JavaScript -->
+   <script th:src="@{/assets/js/slider.js}"></script>
+
+   <!-- Emoji picker -->
+   <script th:src="@{/assets/vendor/emoji-picker-element/index.js}" type="module"></script>
+
+
+   <!-- app JavaScript -->
+   <script th:src="@{/assets/js/app.js}"></script>
+</body>
+
+</html>
